@@ -11,6 +11,14 @@
 		A6D5FE2923392637000E0B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D5FE2723392637000E0B91 /* Main.storyboard */; };
 		A6D5FE2B23392638000E0B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D5FE2A23392638000E0B91 /* Assets.xcassets */; };
 		A6D5FE2E23392638000E0B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D5FE2C23392638000E0B91 /* LaunchScreen.storyboard */; };
+		A6D5FE3723393183000E0B91 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE3623393183000E0B91 /* Employee.swift */; };
+		A6D5FE3A233931BC000E0B91 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE39233931BC000E0B91 /* CalculateViewController.swift */; };
+		A6D5FE3D233931E7000E0B91 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE3C233931E7000E0B91 /* EmployeeTableViewController.swift */; };
+		A6D5FE3F233936C7000E0B91 /* EmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE3E233936C7000E0B91 /* EmployeeController.swift */; };
+		A6D5FE4323393846000E0B91 /* TipTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE4223393846000E0B91 /* TipTableView.swift */; };
+		A6D5FE46233938CD000E0B91 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE45233938CD000E0B91 /* EmployeeTableViewCell.swift */; };
+		A6D5FE49233938F7000E0B91 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE48233938F7000E0B91 /* AddTableViewController.swift */; };
+		A6D5FE4B2339390A000E0B91 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE4A2339390A000E0B91 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,14 @@
 		A6D5FE2A23392638000E0B91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6D5FE2D23392638000E0B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6D5FE2F23392638000E0B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6D5FE3623393183000E0B91 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		A6D5FE39233931BC000E0B91 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		A6D5FE3C233931E7000E0B91 /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
+		A6D5FE3E233936C7000E0B91 /* EmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeController.swift; sourceTree = "<group>"; };
+		A6D5FE4223393846000E0B91 /* TipTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableView.swift; sourceTree = "<group>"; };
+		A6D5FE45233938CD000E0B91 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		A6D5FE48233938F7000E0B91 /* AddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		A6D5FE4A2339390A000E0B91 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +69,60 @@
 			isa = PBXGroup;
 			children = (
 				A6D5FE2323392637000E0B91 /* AppDelegate.swift */,
-				A6D5FE2723392637000E0B91 /* Main.storyboard */,
 				A6D5FE2A23392638000E0B91 /* Assets.xcassets */,
-				A6D5FE2C23392638000E0B91 /* LaunchScreen.storyboard */,
 				A6D5FE2F23392638000E0B91 /* Info.plist */,
+				A6D5FE352339314C000E0B91 /* Storyboards */,
+				A6D5FE3B233931C6000E0B91 /* View Controllers */,
+				A6D5FE4423393855000E0B91 /* Table Views */,
+				A6D5FE47233938D1000E0B91 /* Views */,
+				A6D5FE3823393192000E0B91 /* Modals */,
 			);
 			path = TipSpliter;
+			sourceTree = "<group>";
+		};
+		A6D5FE352339314C000E0B91 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A6D5FE2723392637000E0B91 /* Main.storyboard */,
+				A6D5FE2C23392638000E0B91 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A6D5FE3823393192000E0B91 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				A6D5FE3623393183000E0B91 /* Employee.swift */,
+				A6D5FE3E233936C7000E0B91 /* EmployeeController.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		A6D5FE3B233931C6000E0B91 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6D5FE39233931BC000E0B91 /* CalculateViewController.swift */,
+				A6D5FE3C233931E7000E0B91 /* EmployeeTableViewController.swift */,
+				A6D5FE48233938F7000E0B91 /* AddTableViewController.swift */,
+				A6D5FE4A2339390A000E0B91 /* AddViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A6D5FE4423393855000E0B91 /* Table Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6D5FE4223393846000E0B91 /* TipTableView.swift */,
+			);
+			path = "Table Views";
+			sourceTree = "<group>";
+		};
+		A6D5FE47233938D1000E0B91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6D5FE45233938CD000E0B91 /* EmployeeTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +197,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D5FE2423392637000E0B91 /* AppDelegate.swift in Sources */,
+				A6D5FE46233938CD000E0B91 /* EmployeeTableViewCell.swift in Sources */,
+				A6D5FE4B2339390A000E0B91 /* AddViewController.swift in Sources */,
+				A6D5FE3D233931E7000E0B91 /* EmployeeTableViewController.swift in Sources */,
+				A6D5FE3723393183000E0B91 /* Employee.swift in Sources */,
+				A6D5FE4323393846000E0B91 /* TipTableView.swift in Sources */,
+				A6D5FE3F233936C7000E0B91 /* EmployeeController.swift in Sources */,
+				A6D5FE3A233931BC000E0B91 /* CalculateViewController.swift in Sources */,
+				A6D5FE49233938F7000E0B91 /* AddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
