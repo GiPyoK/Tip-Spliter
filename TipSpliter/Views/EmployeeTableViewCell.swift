@@ -40,7 +40,7 @@ class EmployeeTableViewCell: UITableViewCell {
 //        AddNameLabel.text = employee.name
 //        AddPercentageLabel.text = "\(employee.percentage)%"
 //        hasWorkedSwitch.isOn = employee.hasWorked
-//        
+//
 //        if employee.hasWorked {
 //            tipNameLabel.text = employee.name
 //            tipPercentagleLabel.text = "\(employee.percentage)%"

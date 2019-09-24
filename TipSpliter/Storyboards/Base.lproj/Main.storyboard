@@ -274,7 +274,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="hdk-8g-JKd" id="byq-5j-cva"/>
                                     <outlet property="percentageLabel" destination="pEY-fb-FWm" id="a3M-Bo-Etp"/>
-                                    <segue destination="tN4-4N-z5c" kind="presentation" identifier="EditEmployeeSegue" trigger="accessoryAction" id="En4-mb-ISI"/>
+                                    <segue destination="tN4-4N-z5c" kind="presentation" identifier="EditEmployeeSegue" id="E9V-HA-Nw9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -435,6 +435,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="En4-mb-ISI"/>
+        <segue reference="E9V-HA-Nw9"/>
     </inferredMetricsTieBreakers>
 </document>

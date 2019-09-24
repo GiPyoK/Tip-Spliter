@@ -12,8 +12,6 @@ class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
     
-    var employeeTVCDelegate: EmployeeTableViewController?
-    
     init() {
         loadFromPersistentStore()
     }
@@ -49,7 +47,6 @@ class EmployeeController {
             }
         }
         saveToPersistentStore()
-//        employeeTVCDelegate?.tableView.reloadData()
     }
     
     func update(employee: Employee, name: String, job: String, percentage: Int) {
@@ -80,7 +77,6 @@ class EmployeeController {
                 employees[i].job = job
                 employees.sort(by: <)
                 saveToPersistentStore()
-//                employeeTVCDelegate?.tableView.reloadData()
             }
         }
     }
@@ -109,7 +105,6 @@ class EmployeeController {
                 employees.remove(at: i)
                 saveToPersistentStore()
                 break
-//                employeeTVCDelegate?.tableView.reloadData()
             }
         }
     }

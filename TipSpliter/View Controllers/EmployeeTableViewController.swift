@@ -12,16 +12,6 @@ class EmployeeTableViewController: UITableViewController {
     
     var employeeController = EmployeeController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // TODO: erase
-        //tableView.delegate = self
-        //tableView.dataSource = self
-        //employeeController.employeeTVCDelegate = self
-    }
-
-    // MARK: - Table view data source
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -94,6 +84,12 @@ class EmployeeTableViewController: UITableViewController {
         
     }
 
+}
 
-
+extension EmployeeTableViewController: AddTableViewControllerDelegate {
+    func updateEmployeeController() -> EmployeeController {
+        return employeeController
+    }
+    
+    
 }
