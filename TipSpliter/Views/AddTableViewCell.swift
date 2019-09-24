@@ -1,21 +1,18 @@
 //
-//  EmployeeTableViewCell.swift
+//  AddTableViewCell.swift
 //  TipSpliter
 //
-//  Created by Gi Pyo Kim on 9/23/19.
+//  Created by Gi Pyo Kim on 9/24/19.
 //  Copyright © 2019 GIPGIP Studio. All rights reserved.
 //
 
 import UIKit
 
-class EmployeeTableViewCell: UITableViewCell {
-
-    
+class AddTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
-    
-    
+    @IBOutlet weak var hasWorkedSwitch: UISwitch!
     
     var employee: Employee? {
         didSet {
@@ -28,13 +25,10 @@ class EmployeeTableViewCell: UITableViewCell {
         
         nameLabel.text = employee.name
         percentageLabel.text = "\(employee.percentage)%"
+        hasWorkedSwitch.isOn = employee.hasWorked
+    }
+    @IBAction func switchTabbed(_ sender: UISwitch) {
         
-//
-//        if employee.hasWorked {
-//            tipNameLabel.text = employee.name
-//            tipPercentagleLabel.text = "\(employee.percentage)%"
-//            tipAmoundLabel.text = "$ \(employee.tip)"
-//        }
     }
 
 }
