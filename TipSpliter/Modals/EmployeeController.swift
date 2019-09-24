@@ -11,6 +11,33 @@ import Foundation
 class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
+        
+    var hasWorkedEmployees: [Employee] {
+        return employees.filter { $0.hasWorked == true }
+    }
+    
+    var hasWorkedJobs: [String] {
+        var jobs: [String] = []
+        
+        for i in hasWorkedEmployees.indices {
+            if jobs.count == 0 {
+                jobs.append(hasWorkedEmployees[i].job)
+            } else {
+                var jobExists = false
+                for j in jobs.indices {
+                    if jobs[j] == hasWorkedEmployees[i].job {
+                        jobExists = true
+                        break
+                    }
+                }
+                if !jobExists {
+                    jobs.append(hasWorkedEmployees[i].job)
+                    jobs.sort(by: <)
+                }
+            }
+        }
+        return jobs
+    }
     
     static var sharedEmployeeController = EmployeeController()
     

@@ -16,18 +16,19 @@ class CalculateViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return employeeController.employeeJobs.count
+        return employeeController.hasWorkedJobs.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let job = employeeController.employeeJobs[section]
+        let job = employeeController.hasWorkedJobs[section]
         var cellCounter = 0
-        for i in employeeController.employees.indices {
-            if job == employeeController.employees[i].job {
+        for i in employeeController.hasWorkedEmployees.indices {
+            if job == employeeController.hasWorkedEmployees[i].job {
                 cellCounter += 1
             }
         }
@@ -42,9 +43,9 @@ class CalculateViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        for i in employeeController.employeeJobs.indices {
-            if employeeController.employeeJobs[i] == employeeController.employeeJobs[section] {
-                return employeeController.employeeJobs[section]
+        for i in employeeController.hasWorkedJobs.indices {
+            if employeeController.hasWorkedJobs[i] == employeeController.hasWorkedJobs[section] {
+                return employeeController.hasWorkedJobs[section]
             }
         }
         return nil
@@ -53,9 +54,9 @@ class CalculateViewController: UIViewController, UITableViewDataSource {
     
     private func employeeAs(indexPath: IndexPath) -> Employee {
         var employees: [Employee] = []
-        for i in employeeController.employees.indices {
-            if employeeController.employees[i].job == employeeController.employeeJobs[indexPath.section] {
-                employees.append(employeeController.employees[i])
+        for i in employeeController.hasWorkedEmployees.indices {
+            if employeeController.hasWorkedEmployees[i].job == employeeController.hasWorkedJobs[indexPath.section] {
+                employees.append(employeeController.hasWorkedEmployees[i])
             }
         }
         return employees[indexPath.row]
