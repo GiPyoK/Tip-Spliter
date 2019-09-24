@@ -111,6 +111,16 @@ class EmployeeController {
         }
     }
     
+    func updateHasWorked(for employee: Employee) {
+        for i in employees.indices {
+            if employees[i] == employee {
+                employees[i].hasWorked = !employee.hasWorked
+                saveToPersistentStore()
+                break
+            }
+        }
+    }
+    
     // Persistence
     private var employeeListURL: URL? {
         let fileManager = FileManager.default

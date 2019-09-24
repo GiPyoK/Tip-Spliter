@@ -41,6 +41,7 @@ class AddTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as? AddTableViewCell else { return UITableViewCell() }
 
         cell.employee = employeeAs(indexPath: indexPath)
+        cell.delegate = self
         return cell
     }
     
@@ -67,4 +68,12 @@ class AddTableViewController: UITableViewController {
     @IBAction func doneTabbed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension AddTableViewController: AddTableViewCellDelegate {
+    func hasWorkedUpdated(_ employee: Employee) {
+        employeeController.updateHasWorked(for: employee)
+    }
+    
+    
 }

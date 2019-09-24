@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol AddTableViewCellDelegate {
+    func hasWorkedUpdated(_ employee: Employee)
+}
+
 class AddTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var hasWorkedSwitch: UISwitch!
+    
+    var delegate: AddTableViewCellDelegate?
     
     var employee: Employee? {
         didSet {
@@ -29,7 +35,8 @@ class AddTableViewCell: UITableViewCell {
     }
     
     @IBAction func switchTabbed(_ sender: UISwitch) {
-        
+        guard let employee = employee else { return }
+        delegate?.hasWorkedUpdated(employee)
     }
 
 }
