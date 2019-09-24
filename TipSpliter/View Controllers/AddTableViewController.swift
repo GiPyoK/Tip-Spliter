@@ -8,14 +8,9 @@
 
 import UIKit
 
-protocol AddTableViewControllerDelegate {
-    func updateEmployeeController () -> EmployeeController
-}
-
 class AddTableViewController: UITableViewController {
     
-    var delegate: AddTableViewControllerDelegate?
-    var employeeController: EmployeeController?
+    var employeeController = EmployeeController.sharedEmployeeController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +18,15 @@ class AddTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        employeeController =  delegate?.updateEmployeeController()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard let employeeController = employeeController else { return 0 }
-        
         return employeeController.employeeJobs.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let employeeController = employeeController else { return 0 }
-
         let job = employeeController.employeeJobs[section]
         var cellCounter = 0
         for i in employeeController.employees.indices {
@@ -48,16 +38,13 @@ class AddTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as? EmployeeTableViewCell,
-            let employee = employeeAs(indexPath: indexPath) else { return UITableViewCell() }
-        
-        cell.employee = employee
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as? AddTableViewCell else { return UITableViewCell() }
+
+        cell.employee = employeeAs(indexPath: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let employeeController = employeeController else { return nil }
-
         for i in employeeController.employeeJobs.indices {
             if employeeController.employeeJobs[i] == employeeController.employeeJobs[section] {
                 return employeeController.employeeJobs[section]
@@ -67,9 +54,7 @@ class AddTableViewController: UITableViewController {
     }
     
     
-    private func employeeAs(indexPath: IndexPath) -> Employee? {
-        guard let employeeController = employeeController else { return nil }
-        
+    private func employeeAs(indexPath: IndexPath) -> Employee {        
         var employees: [Employee] = []
         for i in employeeController.employees.indices {
             if employeeController.employees[i].job == employeeController.employeeJobs[indexPath.section] {
@@ -79,4 +64,7 @@ class AddTableViewController: UITableViewController {
         return employees[indexPath.row]
     }
 
+    @IBAction func doneTabbed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }

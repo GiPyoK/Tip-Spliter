@@ -10,12 +10,8 @@ import UIKit
 
 class EmployeeTableViewCell: UITableViewCell {
 
-    
-
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
-    
-    
     
     var employee: Employee? {
         didSet {
@@ -28,13 +24,5 @@ class EmployeeTableViewCell: UITableViewCell {
         
         nameLabel.text = employee.name
         percentageLabel.text = "\(employee.percentage)%"
-        
-//
-//        if employee.hasWorked {
-//            tipNameLabel.text = employee.name
-//            tipPercentagleLabel.text = "\(employee.percentage)%"
-//            tipAmoundLabel.text = "$ \(employee.tip)"
-//        }
     }
-
 }

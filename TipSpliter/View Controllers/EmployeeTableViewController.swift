@@ -10,7 +10,7 @@ import UIKit
 
 class EmployeeTableViewController: UITableViewController {
     
-    var employeeController = EmployeeController()
+    var employeeController = EmployeeController.sharedEmployeeController
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,12 +84,4 @@ class EmployeeTableViewController: UITableViewController {
         
     }
 
-}
-
-extension EmployeeTableViewController: AddTableViewControllerDelegate {
-    func updateEmployeeController() -> EmployeeController {
-        return employeeController
-    }
-    
-    
 }

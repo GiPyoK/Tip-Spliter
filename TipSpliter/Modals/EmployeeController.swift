@@ -12,6 +12,8 @@ class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
     
+    static var sharedEmployeeController = EmployeeController()
+    
     init() {
         loadFromPersistentStore()
     }

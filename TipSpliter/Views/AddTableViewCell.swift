@@ -27,6 +27,7 @@ class AddTableViewCell: UITableViewCell {
         percentageLabel.text = "\(employee.percentage)%"
         hasWorkedSwitch.isOn = employee.hasWorked
     }
+    
     @IBAction func switchTabbed(_ sender: UISwitch) {
         
     }
