@@ -45,15 +45,7 @@ class EmployeeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as? EmployeeTableViewCell else { return UITableViewCell() }
         
-        var employees: [Employee] = []
-        
-        // TODO
-        for i in employeeController.employees.indices {
-                if employeeController.employees[i].job == employeeController.employeeJobs[indexPath.section] {
-                    employees.append(employeeController.employees[i])
-                }
-            }
-        cell.employee = employees[indexPath.row]
+        cell.employee = employeeAs(indexPath: indexPath)
         return cell
         }
     
@@ -69,12 +61,23 @@ class EmployeeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             for i in employeeController.employees.indices {
-                if employeeController.employees[i] == employeeController.employees[indexPath.row] {
+                if employeeController.employees[i] == employeeAs(indexPath: indexPath) {
                     employeeController.delete(employee: employeeController.employees[i])
                     tableView.reloadData()
+                    break
                 }
             }
         }
+    }
+    
+    private func employeeAs(indexPath: IndexPath) -> Employee {
+        var employees: [Employee] = []
+        for i in employeeController.employees.indices {
+            if employeeController.employees[i].job == employeeController.employeeJobs[indexPath.section] {
+                employees.append(employeeController.employees[i])
+            }
+        }
+        return employees[indexPath.row]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,7 +88,7 @@ class EmployeeTableViewController: UITableViewController {
         } else if segue.identifier == "EditEmployeeSegue" {
             if let addVC = segue.destination as? AddViewController, let indexPath = tableView.indexPathForSelectedRow {
                 addVC.employeeController = employeeController
-                addVC.employee = employeeController.employees[indexPath.row]
+                addVC.employee = employeeAs(indexPath: indexPath)
             }
         }
         

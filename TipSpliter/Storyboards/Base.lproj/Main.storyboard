@@ -241,21 +241,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-fb-FWm">
-                                            <rect key="frame" x="306" y="11" width="88" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
-                                            <rect key="frame" x="20" y="10" width="45" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-mE-QQh">
+                                            <rect key="frame" x="10" y="11.5" width="394" height="20.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="306.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-fb-FWm">
+                                                    <rect key="frame" x="306.5" y="0.0" width="87.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hdk-8g-JKd" firstAttribute="leading" secondItem="Udp-mE-QQh" secondAttribute="leading" id="A6d-0v-N4E"/>
+                                                <constraint firstItem="hdk-8g-JKd" firstAttribute="centerY" secondItem="Udp-mE-QQh" secondAttribute="centerY" id="Dx3-mO-xKW"/>
+                                                <constraint firstItem="pEY-fb-FWm" firstAttribute="centerY" secondItem="Udp-mE-QQh" secondAttribute="centerY" id="Qfl-5O-xQk"/>
+                                                <constraint firstAttribute="trailing" secondItem="pEY-fb-FWm" secondAttribute="trailing" id="hQB-E1-dG5"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Udp-mE-QQh" firstAttribute="centerY" secondItem="jDo-ya-FMU" secondAttribute="centerY" id="4F1-Se-e80"/>
+                                        <constraint firstItem="Udp-mE-QQh" firstAttribute="leading" secondItem="jDo-ya-FMU" secondAttribute="leading" constant="10" id="K1Z-fW-Bal"/>
+                                        <constraint firstAttribute="trailing" secondItem="Udp-mE-QQh" secondAttribute="trailing" constant="10" id="YF7-T5-p5F"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="hdk-8g-JKd" id="byq-5j-cva"/>

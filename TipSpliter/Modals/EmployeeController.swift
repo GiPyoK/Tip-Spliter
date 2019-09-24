@@ -101,12 +101,14 @@ class EmployeeController {
                     for j in employeeJobs.indices {
                         if employee.job == employeeJobs[j] {
                             employeeJobs.remove(at: j)
+                            break
                         }
                     }
                     
                 }
                 employees.remove(at: i)
                 saveToPersistentStore()
+                break
 //                employeeTVCDelegate?.tableView.reloadData()
             }
         }
