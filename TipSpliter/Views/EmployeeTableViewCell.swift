@@ -17,26 +17,42 @@ class EmployeeTableViewCell: UITableViewCell {
     // Add Cell
     @IBOutlet weak var AddNameLabel: UILabel!
     @IBOutlet weak var AddPercentageLabel: UILabel!
-    @IBOutlet weak var addJobLabel: UILabel!
+    @IBOutlet weak var hasWorkedSwitch: UISwitch!
     
     // Employees Cell
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    var employee: Employee? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func updateViews() {
+        guard let employee = employee else { return }
+        
+        nameLabel.text = employee.name
+        percentageLabel.text = "\(employee.percentage)%"
+        
+//        AddNameLabel.text = employee.name
+//        AddPercentageLabel.text = "\(employee.percentage)%"
+//        hasWorkedSwitch.isOn = employee.hasWorked
+//        
+//        if employee.hasWorked {
+//            tipNameLabel.text = employee.name
+//            tipPercentagleLabel.text = "\(employee.percentage)%"
+//            tipAmoundLabel.text = "$ \(employee.tip)"
+//        }
     }
+    
+    
+    
 
     // Add View Controller
-    @IBAction func AddCheckButtonTabbed(_ sender: UIButton) {
+    @IBAction func switchTabbed(_ sender: UISwitch) {
+        
     }
 }

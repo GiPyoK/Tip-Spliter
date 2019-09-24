@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="237" width="414" height="530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1BC-Dc-y75" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TipCell" id="1BC-Dc-y75" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1BC-Dc-y75" id="euq-qt-NRz">
@@ -130,7 +130,7 @@
                     <navigationItem key="navigationItem" title="Calcultate TIp" id="dJo-9E-eaz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gkp-cO-Dk5">
                             <connections>
-                                <segue destination="rLp-Gd-Qbn" kind="show" id="86K-E1-dii"/>
+                                <segue destination="rLp-Gd-Qbn" kind="presentation" id="x2R-As-Rry"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -147,37 +147,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="kEw-Iw-TP1">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Title" id="R1h-wr-9MN">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="PUk-lo-gId"/>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sgS-te-w0W" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCell" id="sgS-te-w0W" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sgS-te-w0W" id="UBA-DF-YSL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-7J-eLu">
-                                            <rect key="frame" x="20" y="0.0" width="45" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFW-hr-IwX">
-                                            <rect key="frame" x="20" y="22" width="29" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sof-jW-0B6">
-                                            <rect key="frame" x="356" y="6" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="AddCheckButtonTabbed:" destination="sgS-te-w0W" eventType="touchUpInside" id="7uk-lK-daX"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVb-4L-g3b">
                                             <rect key="frame" x="256" y="11" width="88" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TH2-QZ-hWo">
+                                            <rect key="frame" x="352" y="6" width="49" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="switchTabbed:" destination="sgS-te-w0W" eventType="valueChanged" id="ZJE-iT-2jE"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-7J-eLu">
+                                            <rect key="frame" x="20" y="12" width="45" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -188,7 +190,7 @@
                                 <connections>
                                     <outlet property="AddNameLabel" destination="FrT-7J-eLu" id="6h6-2f-9jz"/>
                                     <outlet property="AddPercentageLabel" destination="oVb-4L-g3b" id="HDd-7S-oqV"/>
-                                    <outlet property="addJobLabel" destination="fFW-hr-IwX" id="7HT-LA-cAY"/>
+                                    <outlet property="hasWorkedSwitch" destination="TH2-QZ-hWo" id="CaL-EI-drE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -197,6 +199,8 @@
                             <outlet property="delegate" destination="rLp-Gd-Qbn" id="NCy-wJ-AUQ"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIW-A6-hcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,20 +234,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JOg-z1-5B8" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployeeCell" id="JOg-z1-5B8" customClass="EmployeeTableViewCell" customModule="TipSpliter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JOg-z1-5B8" id="jDo-ya-FMU">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
-                                            <rect key="frame" x="20" y="0.0" width="45" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-fb-FWm">
                                             <rect key="frame" x="306" y="11" width="88" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -251,8 +248,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4s-Vq-J5J">
-                                            <rect key="frame" x="20" y="22" width="29" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
+                                            <rect key="frame" x="20" y="10" width="45" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -261,9 +258,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="jobLabel" destination="M4s-Vq-J5J" id="NCQ-oz-uBv"/>
                                     <outlet property="nameLabel" destination="hdk-8g-JKd" id="byq-5j-cva"/>
                                     <outlet property="percentageLabel" destination="pEY-fb-FWm" id="a3M-Bo-Etp"/>
+                                    <segue destination="tN4-4N-z5c" kind="presentation" identifier="EditEmployeeSegue" trigger="accessoryAction" id="En4-mb-ISI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -275,7 +272,7 @@
                     <navigationItem key="navigationItem" title="Employees" id="eRz-Mp-ZDp">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Dzz-1n-439">
                             <connections>
-                                <segue destination="tN4-4N-z5c" kind="show" id="uwf-5y-ipN"/>
+                                <segue destination="tN4-4N-z5c" kind="presentation" identifier="AddEmployeeSegue" id="uwf-5y-ipN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -334,10 +331,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkr-pr-MLq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add Employee" id="mEE-7x-Gp6">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vlt-vE-Dj0">
+                                            <connections>
+                                                <action selector="cancelButtonTabbed:" destination="tN4-4N-z5c" id="YHs-Cm-lwd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="LQt-Tv-RLc">
+                                            <connections>
+                                                <action selector="saveButtonTabbed:" destination="tN4-4N-z5c" id="2vs-ny-gK6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sWC-mX-qfo"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="jobLabel" destination="eht-po-9cz" id="NaN-Wt-nuS"/>
+                        <outlet property="nameLabel" destination="6Bq-za-6c5" id="gCA-1m-Mg5"/>
+                        <outlet property="percentageLabel" destination="MnX-Oy-rBv" id="OD6-T3-QdR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kae-KP-eHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,4 +420,7 @@
             <point key="canvasLocation" x="63.768115942028992" y="166.74107142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="En4-mb-ISI"/>
+    </inferredMetricsTieBreakers>
 </document>

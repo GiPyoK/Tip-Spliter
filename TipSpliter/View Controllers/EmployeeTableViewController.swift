@@ -9,82 +9,88 @@
 import UIKit
 
 class EmployeeTableViewController: UITableViewController {
+    
+    var employeeController = EmployeeController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // TODO: erase
+        //tableView.delegate = self
+        //tableView.dataSource = self
+        //employeeController.employeeTVCDelegate = self
     }
 
     // MARK: - Table view data source
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return employeeController.employeeJobs.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let job = employeeController.employeeJobs[section]
+        var cellCounter = 0
+        for i in employeeController.employees.indices {
+            if job == employeeController.employees[i].job {
+                cellCounter += 1
+            }
+        }
+        return cellCounter
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as? EmployeeTableViewCell else { return UITableViewCell() }
+        
+        var employees: [Employee] = []
+        
+        // TODO
+        for i in employeeController.employees.indices {
+                if employeeController.employees[i].job == employeeController.employeeJobs[indexPath.section] {
+                    employees.append(employeeController.employees[i])
+                }
+            }
+        cell.employee = employees[indexPath.row]
         return cell
+        }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        for i in employeeController.employeeJobs.indices {
+            if employeeController.employeeJobs[i] == employeeController.employeeJobs[section] {
+                return employeeController.employeeJobs[section]
+            }
+        }
+        return nil
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            for i in employeeController.employees.indices {
+                if employeeController.employees[i] == employeeController.employees[indexPath.row] {
+                    employeeController.delete(employee: employeeController.employees[i])
+                    tableView.reloadData()
+                }
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddEmployeeSegue" {
+            if let addVC = segue.destination as? AddViewController {
+                addVC.employeeController = employeeController
+            }
+        } else if segue.identifier == "EditEmployeeSegue" {
+            if let addVC = segue.destination as? AddViewController, let indexPath = tableView.indexPathForSelectedRow {
+                addVC.employeeController = employeeController
+                addVC.employee = employeeController.employees[indexPath.row]
+            }
+        }
+        
     }
-    */
+
+
 
 }
