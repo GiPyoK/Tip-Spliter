@@ -12,7 +12,7 @@ class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
         
-    var hasWorkedEmployees: [Employee] {
+     var hasWorkedEmployees: [Employee] {
         return employees.filter { $0.hasWorked == true }
     }
     
@@ -142,6 +142,9 @@ class EmployeeController {
         for i in employees.indices {
             if employees[i] == employee {
                 employees[i].hasWorked = !employee.hasWorked
+                if !employees[i].hasWorked {
+                    employees[i].tip = 0
+                }
                 saveToPersistentStore()
                 break
             }

@@ -17,9 +17,16 @@ class AddViewController: UIViewController {
     var employeeController: EmployeeController?
     var employee: Employee?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateViews()
+        
     }
     
     private func updateViews() {

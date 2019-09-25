@@ -59,6 +59,9 @@
                                         <rect key="frame" x="0.0" y="80" width="374" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateTabbed:" destination="qqT-RL-9Yt" eventType="touchUpInside" id="CTS-fl-uLw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -110,7 +113,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="Czg-K3-AYl" id="Huy-QY-fuc"/>
                                             <outlet property="percentagleLabel" destination="HWZ-FA-QYI" id="W5X-MF-keX"/>
-                                            <outlet property="tipAmoundLabel" destination="9pS-z5-pVm" id="kiA-8J-cw8"/>
+                                            <outlet property="tipAmountLabel" destination="9pS-z5-pVm" id="1Aq-8o-IZj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -119,8 +122,8 @@
                                     <outlet property="delegate" destination="qqT-RL-9Yt" id="giJ-ov-lj9"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Tip $567.89" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phH-by-uzG">
-                                <rect key="frame" x="203" y="237" width="191" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Tip $ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phH-by-uzG">
+                                <rect key="frame" x="223" y="237" width="171" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -148,7 +151,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardTipTextField" destination="ifm-nT-EkE" id="scw-fE-5TP"/>
+                        <outlet property="cashTipTextField" destination="Hgx-Rp-ued" id="tJM-0w-7yj"/>
                         <outlet property="tableView" destination="vQe-OX-yMR" id="sVV-Ut-vg1"/>
+                        <outlet property="totalTipTextField" destination="phH-by-uzG" id="SJL-rc-Jep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nP-A6-Rj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,13 +279,13 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-mE-QQh">
                                             <rect key="frame" x="10" y="11.5" width="394" height="20.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-8g-JKd">
                                                     <rect key="frame" x="0.0" y="0.0" width="306.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-fb-FWm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-fb-FWm">
                                                     <rect key="frame" x="306.5" y="0.0" width="87.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
