@@ -253,7 +253,7 @@
                     <connections>
                         <segue destination="zVm-h6-8cZ" kind="relationship" relationship="viewControllers" id="nql-gl-Kqt"/>
                         <segue destination="Zfn-5J-Meg" kind="relationship" relationship="viewControllers" id="9IJ-eG-Zbv"/>
-                        <segue destination="wEL-sg-zTL" kind="relationship" relationship="viewControllers" id="Ayz-QI-iL7"/>
+                        <segue destination="hWo-fm-Ryd" kind="relationship" relationship="viewControllers" id="Ayz-QI-iL7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC7-xU-8Dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -443,7 +443,7 @@
             </objects>
             <point key="canvasLocation" x="1557" y="167"/>
         </scene>
-        <!--Log View Controller-->
+        <!--Logs-->
         <scene sceneID="6vC-r1-qCF">
             <objects>
                 <viewController id="wEL-sg-zTL" customClass="LogViewController" customModule="TipSpliter" customModuleProvider="target" sceneMemberID="viewController">
@@ -452,7 +452,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="keD-Fx-UtC">
-                                <rect key="frame" x="10" y="54" width="394" height="769"/>
+                                <rect key="frame" x="10" y="98" width="394" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -463,19 +463,19 @@
                         <constraints>
                             <constraint firstItem="keD-Fx-UtC" firstAttribute="bottom" secondItem="Her-VR-fUv" secondAttribute="bottom" constant="10" id="DLC-Wl-Muc"/>
                             <constraint firstItem="keD-Fx-UtC" firstAttribute="leading" secondItem="Her-VR-fUv" secondAttribute="leading" constant="10" id="IkJ-a9-TQA"/>
+                            <constraint firstItem="keD-Fx-UtC" firstAttribute="top" secondItem="Her-VR-fUv" secondAttribute="top" constant="10" id="KBX-1g-Csn"/>
                             <constraint firstItem="Her-VR-fUv" firstAttribute="trailing" secondItem="keD-Fx-UtC" secondAttribute="trailing" constant="10" id="W9v-py-VU6"/>
-                            <constraint firstItem="keD-Fx-UtC" firstAttribute="top" secondItem="Her-VR-fUv" secondAttribute="top" constant="10" id="dfO-Zp-93S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Her-VR-fUv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-note-24" id="Ww2-Ka-Ley"/>
+                    <navigationItem key="navigationItem" title="Logs" id="vWM-wk-eou"/>
                     <connections>
                         <outlet property="logTextView" destination="keD-Fx-UtC" id="wKF-bO-2Ha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1J-CH-x0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="841.74107142857144"/>
+            <point key="canvasLocation" x="816" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wdi-EZ-RHx">
@@ -500,7 +500,7 @@
         <scene sceneID="j4X-2A-QkH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zfn-5J-Meg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-people-24" id="CLf-K8-WHS"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-name-tag-24" id="CLf-K8-WHS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yFP-cR-NgU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -515,11 +515,30 @@
             </objects>
             <point key="canvasLocation" x="63.768115942028992" y="166.74107142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VC7-3h-jXy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hWo-fm-Ryd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="icons8-note-24" id="Ww2-Ka-Ley"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ef1-GE-JfW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wEL-sg-zTL" kind="relationship" relationship="rootViewController" id="Akk-uG-ffj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSi-cH-I8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.768115942028992" y="841.74107142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icons8-calculator-24" width="24" height="24"/>
+        <image name="icons8-name-tag-24" width="24" height="24"/>
         <image name="icons8-note-24" width="24" height="24"/>
-        <image name="icons8-people-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E9V-HA-Nw9"/>

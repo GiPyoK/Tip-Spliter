@@ -82,33 +82,44 @@ class EmployeeController {
     
     func update(employee: Employee, name: String, job: String, percentage: Int) {
         for i in employees.indices {
-            if employee == employees[i] {
-                employees[i].name = name
-                employees[i].percentage = percentage
-                
-                for j in employeeJobs.indices {
-                    if job == employeeJobs[j] {}
-                    else {
-                        var jobExists = false
-                        for k in employees.indices {
-                            if employees[i] != employees[k] && employees[i].job == employees[k].job {
-                                jobExists = true
+            if employees[i] == employee {
+                if employees[i].job != job {
+                    
+                    var jobExists = true
+                    for j in employees.indices {
+                        if employees[i] != employees[j] && employees[i].job != employees[j].job {
+                            jobExists = false
+                        }
+                    }
+                    if !jobExists {
+                        for k in employeeJobs.indices {
+                            if employees[i].job == employeeJobs[k] {
+                                employeeJobs.remove(at: k)
                                 break
                             }
                         }
-                        if !jobExists {
-                            employeeJobs.remove(at: j)
+                    }
+                    var newJobExists = false
+                    for l in employeeJobs.indices {
+                        if job == employeeJobs[l] {
+                            newJobExists = true
+                            break
                         }
-                        
+                    }
+                    if !newJobExists {
                         employeeJobs.append(job)
                         employeeJobs.sort(by: <)
                     }
+                    
+                    
                 }
-                
+                employees[i].name = name
+                employees[i].percentage = percentage
                 employees[i].job = job
                 employees.sort(by: <)
                 saveToPersistentStore()
             }
+            
         }
     }
     
