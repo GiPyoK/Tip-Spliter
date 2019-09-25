@@ -40,6 +40,7 @@ class CalculateViewController: UIViewController {
                 totalTipTextField.text = "Total Tip \(formattedTipAmount)"
             }
             calculateTip(totalTip: totalTip)
+            employeeController.createLog(totalTip: totalTip)
             tableView.reloadData()
         }
         view.endEditing(true)

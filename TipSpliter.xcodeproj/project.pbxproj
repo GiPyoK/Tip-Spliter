@@ -20,6 +20,7 @@
 		A6D5FE4B2339390A000E0B91 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE4A2339390A000E0B91 /* AddViewController.swift */; };
 		A6D5FE4D233A91C8000E0B91 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE4C233A91C8000E0B91 /* AddTableViewCell.swift */; };
 		A6D5FE4F233A9367000E0B91 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE4E233A9367000E0B91 /* TipTableViewCell.swift */; };
+		A6D5FE51233BE6D5000E0B91 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5FE50233BE6D5000E0B91 /* LogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A6D5FE4A2339390A000E0B91 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		A6D5FE4C233A91C8000E0B91 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		A6D5FE4E233A9367000E0B91 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
+		A6D5FE50233BE6D5000E0B91 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				A6D5FE48233938F7000E0B91 /* AddTableViewController.swift */,
 				A6D5FE39233931BC000E0B91 /* CalculateViewController.swift */,
 				A6D5FE4A2339390A000E0B91 /* AddViewController.swift */,
+				A6D5FE50233BE6D5000E0B91 /* LogViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				A6D5FE2423392637000E0B91 /* AppDelegate.swift in Sources */,
 				A6D5FE46233938CD000E0B91 /* EmployeeTableViewCell.swift in Sources */,
 				A6D5FE4B2339390A000E0B91 /* AddViewController.swift in Sources */,
+				A6D5FE51233BE6D5000E0B91 /* LogViewController.swift in Sources */,
 				A6D5FE4F233A9367000E0B91 /* TipTableViewCell.swift in Sources */,
 				A6D5FE3D233931E7000E0B91 /* EmployeeTableViewController.swift in Sources */,
 				A6D5FE3723393183000E0B91 /* Employee.swift in Sources */,

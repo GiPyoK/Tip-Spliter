@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
+    var logText: String = ""
         
      var hasWorkedEmployees: [Employee] {
         return employees.filter { $0.hasWorked == true }
@@ -151,6 +153,34 @@ class EmployeeController {
         }
     }
     
+    func createLog(totalTip: Double) {
+        var tippedEmployees: [Employee] {
+            return employees.filter { $0.tip > 0.0 }
+        }
+        
+        if tippedEmployees.count > 0 {
+            let numFormatter = NumberFormatter()
+            numFormatter.locale = Locale.current
+            numFormatter.numberStyle = .currency
+            
+            let currentDateTime = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .long
+            
+            var log = "\(dateFormatter.string(from: currentDateTime))\n"
+            if let formattedTotalTip = numFormatter.string(from: totalTip as NSNumber) {
+                log += "Total Tip \(formattedTotalTip)\n"
+            }
+            for i in tippedEmployees.indices {
+                if let formattedTipAmount = numFormatter.string(from: tippedEmployees[i].tip as NSNumber) {
+                    log += "\(tippedEmployees[i].name)\t\t\(formattedTipAmount)\n"
+                }
+            }
+            logText = log + "\n" + logText
+        }
+    }
+    
     // Persistence
     private var employeeListURL: URL? {
         let fileManager = FileManager.default
@@ -164,50 +194,77 @@ class EmployeeController {
         return documents.appendingPathComponent("JobList.plist")
     }
     
+    private var logURL: URL? {
+        let fileManager = FileManager.default
+        guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documents.appendingPathComponent("Log.plist")
+    }
+    
     func saveToPersistentStore() {
-        guard let employeeURL = employeeListURL else { return }
-        guard let jobURL = jobListURL else { return }
-        
-        do {
-            let encoder = PropertyListEncoder()
-            let employeesData = try encoder.encode(employees)
-            try employeesData.write(to: employeeURL)
-        } catch {
-            print("Error saving employee list data: \(error)")
+        if let employeeURL = employeeListURL {
+            do {
+                let encoder = PropertyListEncoder()
+                let employeesData = try encoder.encode(employees)
+                try employeesData.write(to: employeeURL)
+            } catch {
+                print("Error saving employee list data: \(error)")
+            }
         }
         
-        do {
-            let encoder = PropertyListEncoder()
-            let jobData = try encoder.encode(employeeJobs)
-            try jobData.write(to: jobURL)
-        } catch {
-            print("Error saving job list data: \(error)")
+        if let jobURL = jobListURL {
+            do {
+                let encoder = PropertyListEncoder()
+                let jobData = try encoder.encode(employeeJobs)
+                try jobData.write(to: jobURL)
+            } catch {
+                print("Error saving job list data: \(error)")
+            }
+        }
+        
+        if let logURL = logURL {
+            do {
+                let encoder = PropertyListEncoder()
+                let logData = try encoder.encode(logText)
+                try logData.write(to: logURL)
+            } catch {
+                print("Error saving log data: \(error)")
+            }
         }
     }
     
     func loadFromPersistentStore() {
         let fileManager = FileManager.default
-        guard let employeeURL = employeeListURL, fileManager.fileExists(atPath: employeeURL.path) else { return }
-        guard let jobURL = jobListURL, fileManager.fileExists(atPath: jobURL.path) else { return }
-
-        do {
-            let employeesData = try Data(contentsOf: employeeURL)
-            let decoder = PropertyListDecoder()
-            let decodedEmployees = try decoder.decode([Employee].self, from: employeesData)
-            employees = decodedEmployees
-            
-        } catch {
-            print("Error loading employee list data: \(error)")
+        if let employeeURL = employeeListURL, fileManager.fileExists(atPath: employeeURL.path) {
+            do {
+                let employeesData = try Data(contentsOf: employeeURL)
+                let decoder = PropertyListDecoder()
+                let decodedEmployees = try decoder.decode([Employee].self, from: employeesData)
+                employees = decodedEmployees
+            } catch {
+                print("Error loading employee list data: \(error)")
+            }
         }
         
-        do {
-            let jobData = try Data(contentsOf: jobURL)
-            let decoder = PropertyListDecoder()
-            let decodedJobs = try decoder.decode([String].self, from: jobData)
-            employeeJobs = decodedJobs
-            
-        } catch {
-            print("Error loading job list data: \(error)")
+        if let jobURL = jobListURL, fileManager.fileExists(atPath: jobURL.path) {
+            do {
+                let jobData = try Data(contentsOf: jobURL)
+                let decoder = PropertyListDecoder()
+                let decodedJobs = try decoder.decode([String].self, from: jobData)
+                employeeJobs = decodedJobs
+            } catch {
+                print("Error loading job list data: \(error)")
+            }
+        }
+        
+        if let logURL = logURL, fileManager.fileExists(atPath: logURL.path) {
+            do {
+                let logData = try Data(contentsOf: logURL)
+                let decoder = PropertyListDecoder()
+                let decodedLog = try decoder.decode(String.self, from: logData)
+                logText = decodedLog
+            } catch {
+                print("Error loading log data: \(error)")
+            }
         }
     }
 }
