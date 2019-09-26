@@ -16,6 +16,8 @@ class LogViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        logTextView.text = employeeController.logText
+        for i in employeeController.logText.indices {
+            logTextView.text += employeeController.logText[i]
+        }
     }
 }

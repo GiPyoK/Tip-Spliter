@@ -12,8 +12,8 @@ import UIKit
 class EmployeeController {
     var employees: [Employee] = []
     var employeeJobs: [String] = []
-    var logText: String = ""
-        
+    var logText: [String] = []
+    
      var hasWorkedEmployees: [Employee] {
         return employees.filter { $0.hasWorked == true }
     }
@@ -188,7 +188,8 @@ class EmployeeController {
                     log += "\(tippedEmployees[i].name)\t\t\(formattedTipAmount)\n"
                 }
             }
-            logText = log + "\n" + logText
+            logText.insert(log + "\n", at: 0)
+            saveToPersistentStore()
         }
     }
     
@@ -271,7 +272,7 @@ class EmployeeController {
             do {
                 let logData = try Data(contentsOf: logURL)
                 let decoder = PropertyListDecoder()
-                let decodedLog = try decoder.decode(String.self, from: logData)
+                let decodedLog = try decoder.decode([String].self, from: logData)
                 logText = decodedLog
             } catch {
                 print("Error loading log data: \(error)")
