@@ -1,6 +1,6 @@
 //
 //  LogViewController.swift
-//  TipSpliter
+//  TipSplitter
 //
 //  Created by Gi Pyo Kim on 9/25/19.
 //  Copyright © 2019 GIPGIP Studio. All rights reserved.

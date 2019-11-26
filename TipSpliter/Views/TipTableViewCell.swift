@@ -1,6 +1,6 @@
 //
 //  TipTableViewCell.swift
-//  TipSpliter
+//  TipSplitter
 //
 //  Created by Gi Pyo Kim on 9/24/19.
 //  Copyright © 2019 GIPGIP Studio. All rights reserved.

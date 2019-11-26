@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TipSpliter.xcodeproj">
+      location = "self:/Users/gipgip/Development/Build Week 1/TipSpliter/TipSpliter.xcodeproj">
    </FileRef>
 </Workspace>
